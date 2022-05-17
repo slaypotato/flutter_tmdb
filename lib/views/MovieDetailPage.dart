@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 
 import '../controllers/MovieDetailController.dart';
 import '../widgets/CenteredMessage.dart';
@@ -47,6 +48,12 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   _buildAppBar() {
     return AppBar(
       title: Text(_controller.movieDetail.title ?? ''),
+      actions: [
+        IconButton(
+            onPressed: () {Share.share(_controller.movieDetail.title ?? '');},
+            icon: const Icon(Icons.share)
+        )
+      ],
     );
   }
 
